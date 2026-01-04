@@ -1,0 +1,14 @@
+---
+- name: Install Web server and Start the httpd Service
+  hosts: all
+  tasks:
+    - name: Verify Httpd package is installed
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+        
+    - name: Ensure httpd service is started & enabled
+      ansible.builtin.service:
+        name: Httpd
+        state: started
+        enabled: true
